@@ -20,40 +20,36 @@ Array.from({ length: btn.length }, (_, i) => i).map((i) =>
 );
 
 div.addEventListener("click", () => {
-  input.value += " " + div.textContent + " ";
+  input.value += "/";
 });
 
 mul.addEventListener("click", () => {
-  input.value += " " + mul.textContent + " ";
+  input.value += "*";
 });
 
 min.addEventListener("click", () => {
-  input.value += " " + min.textContent + " ";
+  input.value += "-";
 });
 
 plus.addEventListener("click", () => {
-  input.value += " " + plus.textContent + " ";
+  input.value += "+";
 });
 
 rem.addEventListener("click", () => {
-  input.value += " " + rem.textContent + " ";
+  input.value += "%";
 });
 
-sqrt.addEventListener("click", () => {
-  input.value = input.value ** 0.5;
-});
+// sqrt.addEventListener("click", () => {
+//   input.value = input.value ** 0.5;
+// });
 
-pow.addEventListener("click", () => {
-  input.value += " " + pow.textContent + " ";
-});
+// pow.addEventListener("click", () => {
+//   input.value += " " + pow.textContent + " ";
+// });
 
 dot.addEventListener("click", () => {
   input.value +=
-    input.value === ""
-      ? 0 + dot.textContent
-      : input.value.includes(".")
-      ? ""
-      : dot.textContent;
+    input.value === "" ? "0." : input.value.includes(".") ? "" : ".";
 });
 
 equal.addEventListener("click", () => {

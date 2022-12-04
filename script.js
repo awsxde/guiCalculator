@@ -14,8 +14,8 @@ let equal = document.querySelector(".equal");
 let clear = document.querySelector(".clear");
 
 //event listener for nums
-Array.from({ length: btn.length }, (_, i) => i).map((i) =>
-  btn[i].addEventListener("click", () => (input.value += btn[i].textContent))
+btn.forEach((i) =>
+  i.addEventListener("click", () => (input.value += i.textContent))
 );
 
 div.addEventListener("click", () => {
@@ -54,6 +54,19 @@ clear.addEventListener("click", () => {
 
 zero.addEventListener("click", () => {
   input.value += input.value === "" ? "" : zero.textContent;
+});
+
+let oprators = document.querySelector(".oprators");
+
+let engs = document.querySelectorAll(".eng");
+
+let count = 0;
+
+oprators.addEventListener("click", () => {
+  count++;
+  engs.forEach((i) =>
+    count % 2 ? i.classList.add("hide") : i.classList.remove("hide")
+  );
 });
 
 // let op = document.querySelector(".op");

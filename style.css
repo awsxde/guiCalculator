@@ -13,8 +13,8 @@ body {
 }
 
 input {
-  border: 0;
-  width: 205px;
+  /* border: 0; */
+  width: 100%;
   height: 50px;
   font-weight: 400;
   font-size: medium;
@@ -46,6 +46,7 @@ button {
   justify-content: center;
   padding-bottom: 50px;
   border-bottom: 0.5px solid rgba(245, 245, 245, 0.233);
+  /* border: 1px solid white; */
 }
 
 .dot,
@@ -74,7 +75,19 @@ button {
 
 .allBtns {
   margin-top: 25px;
-  /* border: 5px solid whitesmoke; */
+  /* border: 5px solid red; */
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.hide {
+  display: none;
+}
+
+.left {
+  margin-right: 15px;
 }
 
 /* .all {

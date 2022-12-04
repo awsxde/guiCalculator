@@ -35,7 +35,7 @@ plus.addEventListener("click", () => {
 });
 
 rem.addEventListener("click", () => {
-  input.value += input.value === "" ? "" : rem.textContent;
+  input.value = input.value === "" ? "" : input.value / 100;
 });
 
 dot.addEventListener("click", () => {

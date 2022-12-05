@@ -13,7 +13,7 @@ body {
 }
 
 input {
-  /* border: 0; */
+  border: 0;
   width: 100%;
   height: 50px;
   font-weight: 400;
@@ -24,31 +24,36 @@ input {
   caret-color: rgba(122, 192, 186, 0.75);
 }
 
+/* change btn width */
 button {
   width: 50px;
   height: 50px;
   font-weight: 400;
   font-size: large;
-  /* margin: 0, 0.5, 1000, 100.5; */
-  /* margin-top: 0px;
-  margin-left: 0.5px;
-  margin-right: 0.5px; */
+  /* margin-bottom: 10px; */
+  margin-left: 10px;
   border-radius: 25px;
   color: rgba(156, 210, 97, 0.82);
   background-color: rgba(23, 23, 23, 0.9);
 }
 
-.parentInput {
+.options {
   width: 100%;
+  /* border: 2px solid red; */
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding-bottom: 50px;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: flex-start;
   border-bottom: 0.5px solid rgba(245, 245, 245, 0.233);
-  /* border: 1px solid white; */
 }
 
+.parentInput {
+  width: 100%;
+  padding-bottom: 50px;
+  /* border: 1px solid blueviolet; */
+}
+
+.eng,
 .dot,
 .zero,
 .sign,
@@ -66,7 +71,7 @@ button {
 }
 
 .container {
-  height: 100vh;
+  height: 90vh;
   display: flex;
   flex-direction: column;
   align-items: center;

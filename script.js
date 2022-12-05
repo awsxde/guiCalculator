@@ -12,6 +12,12 @@ let rem = document.querySelector(".rem ");
 let dot = document.querySelector(".dot");
 let equal = document.querySelector(".equal");
 let clear = document.querySelector(".clear");
+let sqrt = document.querySelector(".sqrt");
+let pow = document.querySelector(".pow");
+let pow2 = document.querySelector(".pow2");
+let pi = document.querySelector(".pi");
+let e = document.querySelector(".e");
+let inverse = document.querySelector(".inverse");
 
 //event listener for nums
 btn.forEach((i) =>
@@ -56,17 +62,43 @@ zero.addEventListener("click", () => {
   input.value += input.value === "" ? "" : zero.textContent;
 });
 
-let oprators = document.querySelector(".oprators");
+let displayOps = document.querySelector(".displayOps");
 
-let engs = document.querySelectorAll(".eng");
+let parentEng = document.querySelector(".parentEng");
 
 let count = 0;
 
-oprators.addEventListener("click", () => {
+// parentEng.classList.remove("hide");
+
+displayOps.addEventListener("click", () => {
   count++;
-  engs.forEach((i) =>
-    count % 2 ? i.classList.add("hide") : i.classList.remove("hide")
-  );
+  count % 2
+    ? parentEng.classList.remove("hide")
+    : parentEng.classList.add("hide");
+});
+
+sqrt.addEventListener("click", () => {
+  input.value = input.value ** 0.5;
+});
+
+pow.addEventListener("click", () => {
+  input.value += "**";
+});
+
+pow2.addEventListener("click", () => {
+  input.value = input.value ** 2;
+});
+
+pi.addEventListener("click", () => {
+  input.value += Math.PI;
+});
+
+e.addEventListener("click", () => {
+  input.value += Math.E;
+});
+
+inverse.addEventListener("click", () => {
+  input.value = 1 / input.value;
 });
 
 // let op = document.querySelector(".op");
@@ -84,16 +116,4 @@ oprators.addEventListener("click", () => {
 // input.addEventListener("input", (e) => {
 //   let x = e.target.value;
 //   preview.innerHTML = !(47 < x.charCodeAt() && x.charCodeAt() < 58) ? x : "";
-// });
-
-// let sqrt = document.querySelector(".sqrt");
-
-// sqrt.addEventListener("click", () => {
-//   input.value = input.value ** 0.5;
-// });
-
-// let pow = document.querySelector(".pow");
-
-// pow.addEventListener("click", () => {
-//   input.value += " " + pow.textContent + " ";
 // });

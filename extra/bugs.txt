@@ -1,11 +1,7 @@
-avoid adding non numric characters
-backspace
-missing engineering ops
 history
-prantez
-sign
-multi op problem
-second number can be 0 or .
+backspace
+parenthesis
+engineering buttons
 button borders in phone
 not responsive on phone
-only one . can exist
+avoid adding non numric characters

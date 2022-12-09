@@ -28,147 +28,85 @@ let pow2 = document.querySelector(".pow2");
 let sign = document.querySelector(".sign");
 let equal = document.querySelector(".equal");
 let clear = document.querySelector(".clear");
-let inverse = document.querySelector(".inverse");
 let flash = document.querySelector(".flash");
+let inverse = document.querySelector(".inverse");
+let backspace = document.querySelector(".backspace");
+let parentEng = document.querySelector(".parentEng");
+let displayOps = document.querySelector(".displayOps");
 
-//event listener for nums
+//variables
+let count = 0;
+
+//functions
 btn.forEach((i) =>
   i.addEventListener("click", () => (input.value += i.textContent))
 );
 
-div.addEventListener("click", () => {
-  input.value += input.value === "" ? "" : div.textContent;
-});
+const addToInput = (value) => (input.value += !input.value ? "" : value);
 
-mul.addEventListener("click", () => {
-  input.value += input.value === "" ? "" : mul.textContent;
-});
+const assignToInput = (value) =>
+  (input.value = !input.value ? "" : eval(value));
 
-min.addEventListener("click", () => {
-  input.value += input.value === "" ? "" : min.textContent;
-});
+const dotHandler = () =>
+  (input.value += !input.value ? "0." : input.value.includes(".") ? "" : ".");
 
-plus.addEventListener("click", () => {
-  input.value += input.value === "" ? "" : plus.textContent;
-});
+const clearFun = () => (input.value = "");
 
-rem.addEventListener("click", () => {
-  input.value = input.value === "" ? "" : input.value / 100;
-});
-
-dot.addEventListener("click", () => {
-  input.value += !input.value ? "0." : input.value.includes(".") ? "" : ".";
-});
-
-equal.addEventListener("click", () => {
-  // console.log([...input.value].map(Number).includes(NaN));
-  // [...input.value].map(Number).includes(NaN) ? "Error" :
-  input.value = input.value === "" ? "" : eval(input.value);
-});
-
-clear.addEventListener("click", () => {
-  input.value = "";
-});
-
-zero.addEventListener("click", () => {
-  input.value += input.value ? "0" : "";
-});
-
-let pushToHistory = () => {
-  input.value != "" && history.push(Number(input.value));
-  input.value = "";
-};
-
-let showHistory = () =>
-  (answer.textContent = history.reduce((a, b) => a + b, ""));
-
-let showAnswer = () => (answer.textContent = eval(answer.textContent));
-
-let equalArray = (str = "") => {
-  history.map((i) => (str += i));
-  history = [eval(str)];
-};
-
-let displayOps = document.querySelector(".displayOps");
-
-let parentEng = document.querySelector(".parentEng");
-
-let count = 0;
-
-parentEng.classList.remove("hide");
-
-displayOps.addEventListener("click", () => {
-  count++;
-  count % 2
+const showExtraBtns = () =>
+  ++count && count % 2
     ? parentEng.classList.remove("hide")
     : parentEng.classList.add("hide");
-});
 
-sqrt.addEventListener("click", () => {
-  input.value = input.value ** 0.5;
-});
+div.addEventListener("click", () => addToInput(div.textContent));
 
-pow.addEventListener("click", () => {
-  input.value += "**";
-});
+mul.addEventListener("click", () => addToInput(mul.textContent));
 
-pow2.addEventListener("click", () => {
-  input.value = input.value ** 2;
-});
+min.addEventListener("click", () => addToInput(min.textContent));
 
-pi.addEventListener("click", () => {
-  input.value += Math.PI;
-});
+plus.addEventListener("click", () => addToInput(plus.textContent));
 
-e.addEventListener("click", () => {
-  input.value += Math.E;
-});
+rem.addEventListener("click", () => assignToInput(input.value / 100));
 
-inverse.addEventListener("click", () => {
-  input.value = 1 / input.value;
-});
+dot.addEventListener("click", dotHandler);
 
-sin.addEventListener("click", () => {
-  input.value = Math.sin(input.value);
-});
+equal.addEventListener("click", () => assignToInput(input.value));
 
-cos.addEventListener("click", () => {
-  input.value = Math.cos(input.value);
-});
+clear.addEventListener("click", clearFun);
 
-tan.addEventListener("click", () => {
-  input.value = Math.tan(input.value);
-});
-
-ln.addEventListener("click", () => {
-  input.value = Math.log(input.value);
-});
-
-log.addEventListener("click", () => {
-  input.value = Math.log(input.value) / Math.log(10);
-});
-
-ex.addEventListener("click", () => {
-  input.value = Math.E ** input.value;
-});
-
-abs.addEventListener("click", () => {
-  input.value = Math.abs(input.value);
-});
-
-// let op = document.querySelector(".op");
-
-// op.addEventListener("click", () => {
-//   input.value += input.value === "" ? "" : op.textContent;
+// zero.addEventListener("click", () => {
+//   input.value += input.value === "" ? "" : "0";
 // });
 
-//ascii codes for
-// 0 = 48
-// 9 = 57
+displayOps.addEventListener("click", showExtraBtns);
 
-// let preview = document.querySelector(".preview");
+sqrt.addEventListener("click", () => assignToInput(input.value ** 0.5));
 
-// input.addEventListener("input", (e) => {
-//   let x = e.target.value;
-//   preview.innerHTML = !(47 < x.charCodeAt() && x.charCodeAt() < 58) ? x : "";
-// });
+pow.addEventListener("click", () => addToInput("**"));
+
+pow2.addEventListener("click", () => addToInput("**2"));
+
+pi.addEventListener("click", () => addToInput(Math.PI));
+
+e.addEventListener("click", () => addToInput(Math.E));
+
+inverse.addEventListener("click", () => assignToInput(1 / input.value));
+
+sin.addEventListener("click", () => assignToInput(Math.sin(input.value)));
+
+cos.addEventListener("click", () => assignToInput(Math.cos(input.value)));
+
+tan.addEventListener("click", () => assignToInput(Math.tan(input.value)));
+
+ln.addEventListener("click", () => assignToInput(Math.ln(input.value)));
+
+log.addEventListener("click", () =>
+  assignToInput(Math.log(input.value) / Math.log(10))
+);
+
+ex.addEventListener("click", () => assignToInput(Math.E ** input.value));
+
+abs.addEventListener("click", () => assignToInput(Math.abs(input.value)));
+
+backspace.addEventListener("click", () => {
+  input.value = !input.value ? "" : input.value.slice(0, -1);
+});

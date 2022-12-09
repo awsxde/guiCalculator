@@ -20,34 +20,34 @@ let op = document.querySelector(".op");
 
 //variables
 let history = [];
-let i = 0;
-let j = 0;
-let activeNumber;
+// let i = 0;
+// let j = 0;
+// let activeNumber;
 
 // functions
-let pushToHistory = () => {
-  input.value != "" && history.push(Number(input.value));
-  input.value = "";
-};
+
+let clearFun = () => (input.value = "");
+
+let pushToHistory = () =>
+  input.value != "" && history.push(+input.value) && clearFun();
 
 let showHistory = () => {
   answer.textContent = history.reduce((a, b) => a + b, "");
 };
 
 let showAnswer = () => {
-  answer.textContent = eval(answer.textContent);
+  answer.textContent = eval(history.reduce((a, b) => a + b, ""));
 };
 
-let equalArray = (str = "") => {
-  history.map((i) => (str += i));
-  history = [eval(str)];
+let equalArray = () => {
+  history = [eval(history.reduce((a, b) => a + b, ""))];
 };
 
 let ifValid = () =>
   typeof history[history.length - 1] == "number" &&
   history[history.length - 1] !== ("+" || "-" || "*" || "/" || "");
 
-let resetI = () => (i = 0);
+// let resetI = () => (i = 0);
 
 //event listener for nums
 btn.forEach((i) =>
@@ -58,35 +58,28 @@ zero.addEventListener("click", () => {
   input.value += input.value ? "0" : "";
 });
 
-function handel() {
+function factor() {
   pushToHistory();
   showHistory();
   equalArray();
   showAnswer();
 }
 
+const handel = (str) => {
+  factor();
+  ifValid() && history.push(`${str}`) && showHistory();
+};
+
 // event listener for operators
-plus.addEventListener("click", () => {
-  handel();
-  ifValid() && history.push("+") && showHistory();
-});
+plus.addEventListener("click", () => handel("+"));
 
-min.addEventListener("click", () => {
-  handel();
-  ifValid() && history.push("-") && showHistory();
-});
+min.addEventListener("click", () => handel("-"));
 
-mul.addEventListener("click", () => {
-  handel();
-  ifValid() && history.push("*") && showHistory();
-});
+mul.addEventListener("click", () => handel("*"));
 
-div.addEventListener("click", () => {
-  handel();
-  ifValid() && history.push("/") && showHistory();
-});
+div.addEventListener("click", () => handel("/"));
 
-equal.addEventListener("click", () => handel());
+equal.addEventListener("click", () => factor());
 
 clear.addEventListener("click", () => {
   input.value = "";
@@ -109,3 +102,15 @@ rem.addEventListener("click", () => {
   showHistory();
   showAnswer();
 });
+
+// const handel2 = (sign, num) => {
+//   input.value
+//     ? (input.value = eval(+`${input.value}${sign}${num}`))
+//     : (history[0] = eval(+`${history[0]}${sign}${num}`));
+//   showHistory();
+//   showAnswer();
+// };
+
+// sign.addEventListener("click", () => handel2("*", -1));
+
+// rem.addEventListener("click", () => handel2("/", 100));

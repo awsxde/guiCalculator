@@ -37,6 +37,42 @@ let displayOps = document.querySelector(".displayOps");
 //variables
 let count = 0;
 
+let nums = input.value
+  .replace(/[%/*-+]/g, "$")
+  .split("$")
+  .filter((i) => i !== "")
+  .map(Number);
+
+let operators = input.value.replace(/\d/g, "").split("");
+
+console.log(nums);
+console.log(operators);
+
+// input.value = "2%+1*2";
+
+//bad way
+// operators = operators
+//   .map(function (i, index) {
+//     if (i === "%") nums[index] /= 100;
+//     return i;
+//   })
+//   .filter((i) => i !== "%");
+
+// console.log(nums[nums.length - 1]);
+
+// equal.addEventListener("click", () => assignToInput(input.value));
+
+equal.addEventListener("click", () => {
+  answer.textContent = eval(input.value.replace(/%/g, "/100"));
+  input.value = answer.textContent;
+});
+
+// const dotHandler = (x = nums.length, y = operators.length) => {
+//   x === y ?
+//   num[num.length - 1]
+//   (input.value += !input.value ? "0." : input.value.includes(".") ? "" : ".");
+// };
+
 //functions
 btn.forEach((i) =>
   i.addEventListener("click", () => (input.value += i.textContent))
@@ -46,9 +82,6 @@ const addToInput = (value) => (input.value += !input.value ? "" : value);
 
 const assignToInput = (value) =>
   (input.value = !input.value ? "" : eval(value));
-
-const dotHandler = () =>
-  (input.value += !input.value ? "0." : input.value.includes(".") ? "" : ".");
 
 const clearFun = () => (input.value = "");
 
@@ -66,10 +99,9 @@ min.addEventListener("click", () => addToInput(min.textContent));
 plus.addEventListener("click", () => addToInput(plus.textContent));
 
 rem.addEventListener("click", () => assignToInput(input.value / 100));
+// rem.addEventListener("click", () => assignToInput(rem.textContent));
 
 dot.addEventListener("click", dotHandler);
-
-equal.addEventListener("click", () => assignToInput(input.value));
 
 clear.addEventListener("click", clearFun);
 

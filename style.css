@@ -10,14 +10,14 @@
 
 body {
   background-color: rgb(1, 1, 1);
+  font-family: lato;
+  font-weight: 400;
 }
 
 input {
   border: 0;
   width: 100%;
   height: 50px;
-  font-weight: 400;
-  font-size: medium;
   font-size: x-large;
   color: rgb(172, 172, 172);
   background-color: rgb(1, 1, 1);
@@ -93,6 +93,14 @@ button {
 
 .left {
   margin-right: 15px;
+}
+
+.answer {
+  color: rgba(172, 172, 172, 0.568);
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: flex-start;
 }
 
 /* .all {

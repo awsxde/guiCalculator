@@ -1,7 +1,6 @@
 history
-backspace
 parenthesis
-engineering buttons
 button borders in phone
 not responsive on phone
+engineering buttons not working
 avoid adding non numric characters

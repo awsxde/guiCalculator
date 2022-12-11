@@ -30,7 +30,6 @@ button {
   height: 50px;
   font-weight: 400;
   font-size: large;
-  /* margin-bottom: 10px; */
   margin-left: 10px;
   border-radius: 25px;
   color: rgba(156, 210, 97, 0.82);
@@ -39,18 +38,17 @@ button {
 
 .options {
   width: 100%;
-  /* border: 2px solid red; */
   display: flex;
   flex-direction: row;
   align-items: flex-end;
   justify-content: flex-start;
   border-bottom: 0.5px solid rgba(245, 245, 245, 0.233);
+  padding-bottom: 5px;
 }
 
 .parentInput {
   width: 100%;
   padding-bottom: 50px;
-  /* border: 1px solid blueviolet; */
 }
 
 .eng,
@@ -71,7 +69,7 @@ button {
 }
 
 .container {
-  height: 90vh;
+  height: 85vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -80,7 +78,6 @@ button {
 
 .allBtns {
   margin-top: 25px;
-  /* border: 5px solid red; */
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -95,7 +92,7 @@ button {
   margin-right: 15px;
 }
 
-.answer {
+.preview {
   color: rgba(172, 172, 172, 0.568);
   display: flex;
   flex-direction: row;
@@ -103,28 +100,8 @@ button {
   justify-content: flex-start;
 }
 
-/* .all {
-  border: 5px solid whitesmoke;
-} */
-
-/* .engOps {
-  border: 5 solid red;
-} */
-
-/* .preview {
-  color: rgb(172, 172, 172);
-  max-width: 205px;
-  max-height: 50px;
-  overflow: scroll;
-  overflow-y: hidden;
-} */
-
-/* .preContainer {
-  border: 50 solid white;
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  justify-content: flex-start;
-  margin-bottom: 10px;
-  margin-left: 5px;
-} */
+.backspace {
+  margin-right: 5px;
+  margin-left: auto;
+  display: block;
+}

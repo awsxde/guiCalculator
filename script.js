@@ -2,7 +2,7 @@
 let zero = document.querySelector(".zero");
 let input = document.querySelector(".input");
 let btn = document.querySelectorAll(".number");
-let answer = document.querySelector(".answer");
+let preview = document.querySelector(".preview");
 
 //ops
 let e = document.querySelector(".e");
@@ -63,8 +63,8 @@ console.log(operators);
 // equal.addEventListener("click", () => assignToInput(input.value));
 
 equal.addEventListener("click", () => {
-  answer.textContent = eval(input.value.replace(/%/g, "/100"));
-  input.value = answer.textContent;
+  preview.textContent = eval(input.value.replace(/%/g, "/100"));
+  input.value = preview.textContent;
 });
 
 // const dotHandler = (x = nums.length, y = operators.length) => {
@@ -83,7 +83,10 @@ const addToInput = (value) => (input.value += !input.value ? "" : value);
 const assignToInput = (value) =>
   (input.value = !input.value ? "" : eval(value));
 
-const clearFun = () => (input.value = "");
+const clearFun = () => {
+  input.value = "ㅤ";
+  preview.textContent = "ㅤ";
+};
 
 const showExtraBtns = () =>
   ++count && count % 2
@@ -101,7 +104,7 @@ plus.addEventListener("click", () => addToInput(plus.textContent));
 rem.addEventListener("click", () => assignToInput(input.value / 100));
 // rem.addEventListener("click", () => assignToInput(rem.textContent));
 
-dot.addEventListener("click", dotHandler);
+// dot.addEventListener("click", dotHandler);
 
 clear.addEventListener("click", clearFun);
 

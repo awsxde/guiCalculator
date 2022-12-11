@@ -84,8 +84,8 @@ const assignToInput = (value) =>
   (input.value = !input.value ? "" : eval(value));
 
 const clearFun = () => {
-  input.value = "ㅤ";
-  preview.textContent = "ㅤ";
+  input.value = "";
+  preview.textContent = "";
 };
 
 const showExtraBtns = () =>

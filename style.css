@@ -31,6 +31,7 @@ button {
   border: none;
   font-weight: 400;
   font-size: large;
+  margin-top: 5px;
   margin-left: 10px;
   border-radius: 25px;
   color: rgba(156, 210, 97, 0.82);
@@ -43,6 +44,7 @@ button {
   flex-direction: row;
   align-items: flex-end;
   justify-content: flex-start;
+  margin-bottom: 0;
   border-bottom: 0.5px solid rgba(245, 245, 245, 0.233);
   padding-bottom: 5px;
 }
@@ -94,15 +96,16 @@ button {
 }
 
 .preview {
-  color: rgba(172, 172, 172, 0.568);
   display: flex;
   flex-direction: row;
   align-items: flex-end;
   justify-content: flex-start;
+  color: rgba(172, 172, 172, 0.568);
+  min-height: 20px;
 }
 
 .backspace {
-  margin-right: 5px;
-  margin-left: auto;
   display: block;
+  margin-left: auto;
+  margin-right: 5px;
 }

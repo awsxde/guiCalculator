@@ -7,7 +7,7 @@ let preview = document.querySelector(".preview");
 //ops
 let e = document.querySelector(".e");
 let pi = document.querySelector(".pi");
-let op = document.querySelector(".op");
+let op = document.querySelectorAll(".op");
 let ln = document.querySelector(".ln");
 let ex = document.querySelector(".ex");
 let div = document.querySelector(".div");
@@ -28,14 +28,16 @@ let pow2 = document.querySelector(".pow2");
 let sign = document.querySelector(".sign");
 let equal = document.querySelector(".equal");
 let clear = document.querySelector(".clear");
-let flash = document.querySelector(".flash");
+// let flash = document.querySelector(".flash");
 let inverse = document.querySelector(".inverse");
 let backspace = document.querySelector(".backspace");
-let parentEng = document.querySelector(".parentEng");
+let parentEng1 = document.querySelector(".parentEng1");
+let parentEng2 = document.querySelector(".parentEng2");
 let displayOps = document.querySelector(".displayOps");
 
 //variables
-let count = 0;
+let count1 = 0;
+// let count2 = 0;
 
 let nums = input.value
   .replace(/[%/*-+]/g, "$")
@@ -63,8 +65,9 @@ console.log(operators);
 // equal.addEventListener("click", () => assignToInput(input.value));
 
 equal.addEventListener("click", () => {
-  preview.textContent = eval(input.value.replace(/%/g, "/100"));
-  input.value = preview.textContent;
+  // preview.textContent = eval(input.value.replace(/%/g, "/100"));
+  input.value = eval(input.value);
+  preview.textContent = "";
 });
 
 // const dotHandler = (x = nums.length, y = operators.length) => {
@@ -75,7 +78,11 @@ equal.addEventListener("click", () => {
 
 //functions
 btn.forEach((i) =>
-  i.addEventListener("click", () => (input.value += i.textContent))
+  i.addEventListener("click", () => {
+    input.value += i.textContent;
+    if ([..."/*-+"].some((i) => input.value.includes(i)))
+      preview.textContent = eval(input.value);
+  })
 );
 
 const addToInput = (value) => (input.value += !input.value ? "" : value);
@@ -89,9 +96,27 @@ const clearFun = () => {
 };
 
 const showExtraBtns = () =>
-  ++count && count % 2
-    ? parentEng.classList.remove("hide")
-    : parentEng.classList.add("hide");
+  ++count1 && count1 % 2
+    ? parentEng1.classList.remove("hide")
+    : parentEng1.classList.add("hide");
+
+// let count1 = 0;
+let count2 = 0;
+
+let flash = document.querySelectorAll(".flash");
+
+function handle(x, y) {
+  x.classList.remove("hide");
+  y.classList.add("hide");
+}
+
+flash.forEach((i) =>
+  i.addEventListener("click", () => {
+    ++count2 && count2 % 2
+      ? handle(parentEng2, parentEng1)
+      : handle(parentEng1, parentEng2);
+  })
+);
 
 div.addEventListener("click", () => addToInput(div.textContent));
 
@@ -145,3 +170,9 @@ abs.addEventListener("click", () => assignToInput(Math.abs(input.value)));
 backspace.addEventListener("click", () => {
   input.value = !input.value ? "" : input.value.slice(0, -1);
 });
+
+op.forEach((i) =>
+  i.addEventListener("click", () => {
+    preview.textContent = "";
+  })
+);

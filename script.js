@@ -47,8 +47,8 @@ let nums = input.value
 
 let operators = input.value.replace(/\d/g, "").split("");
 
-console.log(nums);
-console.log(operators);
+// console.log(nums);
+// console.log(operators);
 
 // input.value = "2%+1*2";
 
@@ -80,7 +80,7 @@ equal.addEventListener("click", () => {
 btn.forEach((i) =>
   i.addEventListener("click", () => {
     input.value += i.textContent;
-    if ([..."/*-+"].some((i) => input.value.includes(i)))
+    if ([..."*/-+"].some((i) => input.value.includes(i)))
       preview.textContent = eval(input.value);
   })
 );
@@ -105,7 +105,7 @@ let count2 = 0;
 
 let flash = document.querySelectorAll(".flash");
 
-function handle(x, y) {
+function unhide(x, y) {
   x.classList.remove("hide");
   y.classList.add("hide");
 }
@@ -113,18 +113,32 @@ function handle(x, y) {
 flash.forEach((i) =>
   i.addEventListener("click", () => {
     ++count2 && count2 % 2
-      ? handle(parentEng2, parentEng1)
-      : handle(parentEng1, parentEng2);
+      ? unhide(parentEng2, parentEng1)
+      : unhide(parentEng1, parentEng2);
   })
 );
 
-div.addEventListener("click", () => addToInput(div.textContent));
+//fixing multi op problem
+const addToInputOp = (value) =>
+  (input.value +=
+    !input.value || [..."*/+-"].includes(input.value.slice(-1)[0])
+      ? ""
+      : value);
 
-mul.addEventListener("click", () => addToInput(mul.textContent));
+//one event listener instead of billions
+let test = document.querySelectorAll(".test");
 
-min.addEventListener("click", () => addToInput(min.textContent));
+test.forEach((i) =>
+  i.addEventListener("click", () => addToInputOp(i.textContent))
+);
 
-plus.addEventListener("click", () => addToInput(plus.textContent));
+// div.addEventListener("click", () => addToInput(div.textContent));
+
+// mul.addEventListener("click", () => addToInput(mul.textContent));
+
+// min.addEventListener("click", () => addToInput(min.textContent));
+
+// plus.addEventListener("click", () => addToInput(plus.textContent));
 
 rem.addEventListener("click", () => assignToInput(input.value / 100));
 // rem.addEventListener("click", () => assignToInput(rem.textContent));

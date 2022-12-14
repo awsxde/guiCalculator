@@ -109,3 +109,17 @@ button {
   margin-left: auto;
   margin-right: 5px;
 }
+
+.ops,
+.ruler,
+.history,
+.backspace {
+  zoom: 1.1;
+  width: 45px;
+  height: 45px;
+  border-radius: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}

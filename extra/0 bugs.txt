@@ -1,0 +1,7 @@
+history
+parenthesis
+change ltr to rtl on input
+not responsive on phone
+engineering buttons not working
+avoid adding non numric characters
+change operator if multi time clicked

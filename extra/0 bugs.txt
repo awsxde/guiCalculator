@@ -5,3 +5,10 @@ not responsive on phone
 engineering buttons not working
 avoid adding non numric characters
 change operator if multi time clicked
+0 
+.
+replace eval
+disable bs
+disable history
+connect every value with /*-+
+mange preview on backspace

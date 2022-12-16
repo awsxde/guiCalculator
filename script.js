@@ -190,3 +190,12 @@ op.forEach((i) =>
     preview.textContent = "";
   })
 );
+
+let parenthesis = document.querySelector(".parenthesis");
+
+let count = 0;
+parenthesis.addEventListener("click", () => {
+  //state 1 : no parenthesis exist
+  count += 1;
+  input.value += count === 0 ? "" : count > 0 ? "(" : ")";
+});

@@ -1,14 +1,16 @@
-history
-parenthesis
-change ltr to rtl on input
-not responsive on phone
-engineering buttons not working
-avoid adding non numric characters
-change operator if multi time clicked
-0 
-.
 replace eval
+engineering buttons not working
+connect every value with /*-+ (first should fix eng btns to do this)
+history
+avoid adding non numric characters
+mange preview on backspace
+.
 disable bs
 disable history
-connect every value with /*-+
-mange preview on backspace
+change ltr to rtl on input
+
+(fixed for now) :
+parenthesis
+not responsive on phone 
+change operator if multi time clicked
+0

@@ -136,8 +136,24 @@ btn.forEach((i) => i.addEventListener("click", () => btnHandler(i)));
 let test = document.querySelectorAll(".test");
 
 test.forEach((i) =>
-  i.addEventListener("click", () => addToInputOp(i.textContent))
+  i.addEventListener("click", () => {
+    inputValues().length === operators().length
+      ? (input.value = input.value.slice(0, -1) + i.textContent)
+      : addToInputOp(i.textContent);
+    // console.log(inputValues(), inputValues().length);
+    // console.log(operators(), operators().length);
+    // console.log(typeof input.value);
+  })
 );
+
+function zeroHandler() {
+  let arr = inputValues();
+  let last = arr.slice(-1)[0];
+  console.log(arr, last);
+  input.value += last === undefined ? "" : "0";
+}
+
+zero.addEventListener("click", zeroHandler);
 
 // div.addEventListener("click", () => addToInput(div.textContent));
 
@@ -151,10 +167,6 @@ test.forEach((i) =>
 // rem.addEventListener("click", () => assignToInput(rem.textContent));
 
 // dot.addEventListener("click", dotHandler);
-
-// zero.addEventListener("click", () => {
-//   input.value += input.value === "" ? "" : "0";
-// });
 
 // sqrt.addEventListener("click", () => assignToInput(input.value ** 0.5));
 

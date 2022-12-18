@@ -123,3 +123,23 @@ button {
   align-items: center;
   justify-content: center;
 }
+
+@media screen and (max-width: 1000px) {
+  * {
+    zoom: 1.18;
+  }
+
+  .allBtns {
+    margin-bottom: 150px;
+  }
+}
+
+@media screen and (min-width: 1001px) {
+  * {
+    zoom: 1.02;
+  }
+
+  .container {
+    margin-top: 35px;
+  }
+}
